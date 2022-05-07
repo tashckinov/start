@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#app {
+    height: 98.39vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+input {
+    color: #000;
+    margin: 0;
+    width: 100%;
+    border: none;
+    outline-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: inset 0px 0px 2px 2px #28282817;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 2px 2px #28282817;
+    margin: 5px;
+    transition: .3s;
+    border: 1px solid #fff0;
+}
+
+a:hover {
+    border: 1px solid #000;
+}
+
+p {
+    margin: 0;
+    color: #0009;
+    font-weight: bold;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+    margin: 13px;
+}
+
+p:first-child {
+    color: #000;
+}
+
+.favs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: .3s;
+}
+
+.favs a {
+    color: #fff;
+}
+
+.pole {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 2px #28282817;
+    margin: 35px 0;
+    width: -webkit-fill-available;
+    max-width: 1000px;
+    padding: 5px;
+    position: relative;
+}
+
+.message {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.list-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.anim-enter-active, .anim-leave-active {
+    transition: all .3s;
+}
+
+.anim-enter, .anim-leave-to /* .list-leave-active до версии 2.1.8 */
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        box-shadow: none;
+    }
+
+    body {
+        background: #121212;
+    }
+
+    .pole {
+        background: #292a2d;
+        color: #fff;
+        box-shadow: none;
+    }
+
+    input {
+        background: #45464f;
+        color: #fff;
+        transition: .3s
+    }
+
+    input:focus {
+        background: #121212;
+    }
+
+    p, .message, p:first-child {
+        color: #ffffff;
+        font-weight: lighter;
+    }
+
+    p:first-child {
+        font-weight: normal;
+    }
+
+    a:hover {
+        border: 1px solid #fff;
+    }
+
+    a {
+        background: #292a2d;
+    }
+
+    .message p {
+        color: #45464f;
+    }
+}

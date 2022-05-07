@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Start</title>
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <script>var a;</script>
+</head>
+<body>
+<div id="app">
+    <div class="pole">
+        <input type="text" v-model="search_line" id="line"
+               v-on:keyup.enter="search" v-on:input="input_check" spellcheck="false"
+               autocomplete="off" autofocus>
+        <div class="message" v-on:click="document.getElementById('line').focus()"><p>
+            {{localStorage.getItem('engine')}}</p></div>
+    </div>
+
+    <transition-group name="anim" tag="div" class="favs">
+        <a v-bind:href="'http://' + site['url']" v-for="site in result"
+           v-bind:key="site" class="list-item">
+            <p>{{site['name']}}</p>
+            <p>{{site['desc']}}</p>
+        </a>
+        <a v-for="engine in engines_show" v-bind:key="engine"
+           v-on:click="change_engine(engine)"
+           class="list-item">{{engine}}</a>
+    </transition-group>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
