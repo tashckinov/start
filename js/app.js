@@ -71,27 +71,10 @@ var app = new Vue({
                     this.scmd_e(argument);
                     break;
                 case 'a':
-                    let name = argument;
-                    let url = this.search_line.slice(1).split(' ')[2]
-                    let bind = this.search_line.slice(1).split(' ')[3]
-                    let desc = this.search_line.slice(1).split(' ')[4]
-
-                    if (!isEmpty(name) && !isEmpty(url) && !isEmpty(bind)) {
-                        this.add = {name: name, url: url, desc: desc, bind: bind};
-                    } else this.add = false;
+                    this.scmd_a(argument);
                     break;
-                case 'rm':
-                    this.result = []
-                    this.to_remove = false;
-                    if (!isEmpty(argument)) {
-                        for (let key in this.sites) {
-                            if (this.sites[key]['name'].includes(argument)) {
-                                this.result.push(this.sites[key]);
-                                this.remove_index = key;
-                                this.to_remove = true;
-                            }
-                        }
-                    }
+                case 'd':
+                    this.scmd_d(argument);
                     break;
                 default:
                     this.engines_show = [];
@@ -105,6 +88,30 @@ var app = new Vue({
                     this.engines_show.push(key)
                 }
             }
+        }, scmd_a(argument) {
+			let name = argument;
+			let url = this.search_line.slice(1).split(' ')[2]
+			let bind = this.search_line.slice(1).split(' ')[3]
+			let desc = this.search_line.slice(1).split(' ')[4]
+
+			if (!isEmpty(name) && !isEmpty(url) && !isEmpty(bind)) {
+				this.add = {name: name, url: url, desc: desc, bind: bind};
+			} else this.add = false;
+        }, scmd_d(argument) {
+			this.result = []
+			this.to_remove = false;
+
+			if (!isEmpty(argument)) {
+				for (let key in this.sites) {
+					if (this.sites[key]['name'].includes(argument)) {
+						this.result.push(this.sites[key]);
+						this.remove_index = findIndex(function (sites) {
+							return sites.name = key
+						};
+						this.to_remove = true;
+					}
+				}
+			}
         }
     }, mounted() {
         if (!localStorage.getItem('engine')) {
