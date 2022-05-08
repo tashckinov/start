@@ -105,9 +105,7 @@ var app = new Vue({
 				for (let key in this.sites) {
 					if (this.sites[key]['name'].includes(argument)) {
 						this.result.push(this.sites[key]);
-						this.remove_index = findIndex(function (sites) {
-							return sites.name = key
-						};
+						this.remove_index = this.sites.indexOf(key); 
 						this.to_remove = true;
 					}
 				}
