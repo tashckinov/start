@@ -17,4 +17,4 @@ Type ':' to use shortcuts, type '/' to use a command.
 
 `/r(emove) example` - remove a website with name 'example'
 
-`/r(emove) engine example` - remove a search engine with name 'example'
+`/r(emove) e(ngine) example` - remove a search engine with name 'example'
