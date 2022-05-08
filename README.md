@@ -8,13 +8,13 @@ Type ':' to use shortcuts, type '/' to use a command.
 
 ### Available commands
 
-#### `e` _`[ya|google|ddg|searx]`_
+`/e(ngine) [ya|google|ddg|searx|etc]` - change current search engine
 
-Change current search engine
+`/a(dd) example example.com ex example website` - add a website with name
+'example', shortcut 'ex' and (optional) a description 'example website'
 
-#### `a` _`[type]`_ _`[name]`_ _`[url]`_
+`/a(dd) e(ngine) example example.com/?q=` - add a new search engine with name 'example'
 
-- Pass 'e' or 'w' as a type to add either engine or website
-- If 'w' passed as a type, you can also include a shortcut and a
-  description of a website <br/> 
-  `/a w example https://example.com ex 'example website'`
+`/r(emove) example` - remove a website with name 'example'
+
+`/r(emove) e(ngine) example` - remove a search engine with name 'example'
