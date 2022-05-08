@@ -4,8 +4,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.indicator {
+    width: 5px;
+    height: 5px;
+    overflow: hidden;
+    background: #ff00007c;
+    border-radius: 100%;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
 #app {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     user-select: none;
@@ -40,7 +51,6 @@ a:hover {
 p {
     margin: 0;
     color: #0009;
-    font-weight: bold;
 }
 
 svg {
@@ -50,7 +60,7 @@ svg {
 }
 
 p:first-child {
-    color: #000;
+    color: #0a0a0a;
 }
 
 .favs {
@@ -62,6 +72,7 @@ p:first-child {
 
 .favs a {
     color: #fff;
+    position: relative;
 }
 
 .pole {
@@ -97,7 +108,7 @@ p:first-child {
     transition: all .3s;
 }
 
-.anim-enter, .anim-leave-to /* .list-leave-active Ð´Ð¾ Ð²ÐµÑ€ÑÐ¸Ð¸ 2.1.8 */
+.anim-enter, .anim-leave-to /* .list-leave-active ÃÂ´ÃÂ¾ ÃÂ²ÃÂµÃ‘â‚¬Ã‘ÂÃÂ¸ÃÂ¸ 2.1.8 */
 {
     opacity: 0;
     transform: translateY(30px);

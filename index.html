@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,18 +16,22 @@
                v-on:keyup.enter="search" v-on:input="input_check" spellcheck="false"
                autocomplete="off" autofocus>
         <div class="message" v-on:click="document.getElementById('line').focus()"><p>
-            {{localStorage.getItem('engine')}}</p></div>
+            {{ localStorage.getItem('engine') }}</p></div>
     </div>
 
     <transition-group name="anim" tag="div" class="favs">
         <a v-bind:href="'https://' + site['url']" v-for="site in result"
            v-bind:key="site" class="list-item">
-            <p>{{site['name']}}</p>
-            <p>{{site['desc']}}</p>
+            <p>{{ site['name'] }}</p>
+            <p>{{ site['desc'] }}</p>
+            <div class="indicator" v-if="site['name']===sites[remove_index]['name'] && to_remove"></div>
         </a>
         <a v-for="engine in engines_show" v-bind:key="engine"
            v-on:click="change_engine(engine)"
-           class="list-item">{{engine}}</a>
+           class="list-item">
+            <p>{{ engine }}</p>
+            <div class="indicator" v-if="engines_show[0]===engine && to_remove"></div>
+        </a>
     </transition-group>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
