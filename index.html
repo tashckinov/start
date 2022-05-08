@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -6,7 +6,7 @@
     <title>Start</title>
     <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    <script>var a;</script>
+    <script>let a;</script>
 </head>
 <body>
 <div id="app">
@@ -19,7 +19,7 @@
     </div>
 
     <transition-group name="anim" tag="div" class="favs">
-        <a v-bind:href="'http://' + site['url']" v-for="site in result"
+        <a v-bind:href="'https://' + site['url']" v-for="site in result"
            v-bind:key="site" class="list-item">
             <p>{{site['name']}}</p>
             <p>{{site['desc']}}</p>
