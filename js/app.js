@@ -33,7 +33,7 @@ var app = new Vue({
                 if (this.to_remove && this.result.length > 0) {
                     this.sites.splice(this.remove_index, 1)
                     localStorage.setItem('sites', JSON.stringify(this.sites))
-                    this.remove_index = -1;
+                    this.remove_index = 0;
                     this.search_line = '';
                     this.to_remove = false;
                     this.result = [];
@@ -55,6 +55,7 @@ var app = new Vue({
                     this.engines_show = [];
                     this.search_line = '';
                     this.to_remove = false;
+                    this.remove_index = 0;
                 }
             }
         }, input_check() {
@@ -78,6 +79,7 @@ var app = new Vue({
                 this.search_line = '';
             }
         }, bind() {
+            this.to_remove = false;
             this.result = [];
             for (let key in this.sites) {
                 if (this.sites[key]['bind'].includes(this.search_line.slice(1))) {
@@ -105,6 +107,7 @@ var app = new Vue({
                     break;
             }
         }, scmd_e(argument) {
+            this.to_remove = false;
             if (argument === undefined) argument = '';
             this.engines_show = []
             for (let key in this.engines) {
@@ -113,6 +116,8 @@ var app = new Vue({
                 }
             }
         }, scmd_a(argument) {
+
+            this.to_remove = false;
 
             if (argument === 'e' || argument === 'engine') {
                 let name = this.search_line.slice(1).split(' ')[2];
