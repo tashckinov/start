@@ -1,10 +1,10 @@
-# Xiao's startpage
+<h1 align="center"> Xiao's startpage </h1>
 
-https://start.noject.xyz/
+<h4 align="center"> https://start.noject.xyz/ </h4>
 
-## Getting started
+<img src="./example.gif" width="40%" align="right">
 
-Type ':' to use shortcuts, type '/' to use a command.
+To get started, type either _`:<key>`_ or _`/<cmd>`_
 
 ### Available commands
 
