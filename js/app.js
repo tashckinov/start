@@ -7,14 +7,26 @@ var app = new Vue({
     el: '#app', data: {
         sites: [{name: "youtube", url: "youtube.com", desc: "video hosting", bind: "yt"}, {
             name: "github", url: "github.com", desc: "hosting of IT projects", bind: "gh"
-        }], search_line: '', engines: {
+        }],
+        search_line: '',
+        engines: {
             ya: "https://yandex.ru/search/?text=",
             google: "https://www.google.com/search?ie=UTF-8&q=",
             brave: "https://search.brave.com/search?q=",
             ddg: "https://duckduckgo.com/?q=",
             searx: "https://searx.tiekoetter.com/search?q="
-        }, engines_show: [], result: [], add: false, to_remove: false, remove_index: 0, engine: 'ya', engine_request: []
+        },
+        engines_show: [],
+        result: [],
+        add: false,
+        to_remove: false,
+        to_import: false,
+        remove_index: 0,
+        engine: 'ya',
+        engine_request: [],
+        link: {href: "data:application/octet-stream;charset=utf-8;base64,SGVsbG8=", name: "export.txt"}
     }, methods: {
+        export: {},
         search() {
             if (this.search_line[0] !== ':' && this.search_line[0] !== '/') {
                 document.location.href = this.engines[localStorage.getItem('engine')] + this.search_line;
@@ -56,6 +68,15 @@ var app = new Vue({
                     this.search_line = '';
                     this.to_remove = false;
                     this.remove_index = 0;
+                }
+                if (this.to_import) {
+                    let a = document.createElement("a");
+                    let file = new Blob([localStorage.getItem('engine'),';;', localStorage.getItem('engines'),';;', localStorage.getItem('sites')], {type: 'application/json'});
+                    a.href = URL.createObjectURL(file);
+                    a.download = "startpage.noject";
+                    a.click();
+                    this.to_import = false;
+                    this.search_line = '';
                 }
             }
         }, input_check() {
@@ -101,6 +122,10 @@ var app = new Vue({
                 case 'r':
                 case 'remove':
                     this.scmd_r(argument);
+                    break;
+                case 'i':
+                case 'import':
+                    this.to_import = true;
                     break;
                 default:
                     this.engines_show = [];
