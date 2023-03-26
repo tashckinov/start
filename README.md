@@ -1,6 +1,6 @@
 <h1 align="center"> Xiao's startpage </h1>
 
-<h4 align="center"> https://start.noject.xyz/ </h4>
+<h4 align="center"> https://noject.github.io/start/ </h4>
 
 <img src="./example.gif" width="40%" align="right">
 
